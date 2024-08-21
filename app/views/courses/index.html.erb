@@ -3,19 +3,49 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% content_for :title, "Courses" %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Courses</h1>
-    <%= link_to "New course", new_course_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="flex justify-between items-center pb-8">
+    <h1 class="mx-auto text-lg font-bold">Courses</h1>
   </div>
 
-  <div id="courses" class="min-w-full">
-    <% @courses.each do |course| %>
-      <%= render course %>
-      <p>
-        <%= link_to "Show this course", course, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
-  </div>
-</div>
+  <table id="courses" class="mx-auto">
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <div class="mt-8">
+            <%= link_to 'New course',
+              new_course_path,
+              class: "inline rounded-lg py-3 px-5 bg-green-600 text-white block font-medium" %>
+          </div>
+        </td>
+      </tr>
+    <tfoot>
+    
+    <tbody>
+      <% @courses.each do |course| %> 
+        <tr class="<%= cycle('bg-red-100', 'bg-white') %>">
+          <td class="px-2 py-3">
+            <%= image_tag(course.image_url, class: 'w-40') %>
+          </td>
+          <td>
+            <h1 class="text-xl font-bold mb-3"><%= course.title %></h1>
+            <p>
+              <%= truncate(strip_tags(course.description), length: 80) %>
+            </p>
+          </td>
+          <td class="px-3">
+            <ul>
+              <li>
+                <%= link_to 'Show', course, class: 'hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Edit', edit_course_path(course), class: 'hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Destroy', course, class: 'hover:underline', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              </li>
+            </ul>
+          </td>
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>
