@@ -1,6 +1,8 @@
 require "test_helper"
 
 class CourseTest < ActiveSupport::TestCase
+  fixtures :courses
+
   test "course attributes should not be empty" do
     course = Course.new
     assert course.invalid?
