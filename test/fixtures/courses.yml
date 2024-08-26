@@ -3,11 +3,17 @@
 one:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: js.png
   price: 9.99
 
 two:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: js.png
   price: 9.99
+
+ruby:
+  title: "Ruby Programming Language"
+  description: "Ruby is an open source programming language created by Matz."
+  image_url: ruby.png
+  price: 11.0
