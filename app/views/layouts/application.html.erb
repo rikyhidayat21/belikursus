@@ -18,8 +18,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-200">
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-gray-200 flex">
+    <nav class="bg-gray-800 text-white w-64 min-h-screen flex flex-col">
+      <div class="p-4">
+        <%= image_tag "https://via.placeholder.com/150x50?text=BeliKursus", alt: "logo", class: "w-full" %>
+      </div>
+
+      <ul class="flex-grow">
+        <li><%= link_to "Home", "#", class: "block py-2 px-4 hover:bg-gray-700" %></li>
+        <li><%= link_to "Courses", "#", class: "block py-2 px-4 hover:bg-gray-700" %></li>
+        <li><%= link_to "About Us", "#", class: "block py-2 px-4 hover:bg-gray-700" %></li>
+        <li><%= link_to "Contact", "#", class: "block py-2 px-4 hover:bg-gray-700" %></li>
+      </ul>
+    </nav>
+
+    <main class="flex-grow p-8">
       <%= yield %>
     </main>
   </body>
