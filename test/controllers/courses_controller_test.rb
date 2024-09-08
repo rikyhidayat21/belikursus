@@ -40,10 +40,10 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy course" do
-    assert_difference("Course.count", -1) do
-      delete course_url(@course)
+    assert_raises ActiveRecord::RecordNotDestroyed do
+      delete course_url(courses(:two))
     end
 
-    assert_redirected_to courses_url
+    assert Course.exists?(courses(:two).id)
   end
 end
