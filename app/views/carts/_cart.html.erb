@@ -1,2 +1,11 @@
 <div id="<%= dom_id cart %>">
+  <h2 class="font-bold text-lg mb-3">BeliKursus Cart</h2>
+  <ul>
+    <% cart.line_items.each do |item| %>
+      <li><%= item.course.title %></li>  
+      <li><%= item.course.description %></li>  
+      <br>
+      <br>
+    <% end %>
+  </ul>
 </div>

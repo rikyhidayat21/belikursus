@@ -17,7 +17,9 @@
               </div>
               <div class="flex justify-between">
                 <%= link_to "Show", "#", class: "bg-gray-500 text-white text-center px-4 py-2 rounded hover:bg-gray-600 transition duration-300 flex-grow mr-2" %>
-                <%= link_to "Add to Cart", "#", class: "bg-blue-500 text-white text-center px-4 py-2 rounded hover:bg-blue-600 transition duration-300 flex-grow ml-2"  %>
+                <%= button_to "Add to Cart",
+                  line_items_path(course_id: course.id),
+                  class: "bg-blue-500 text-white text-center px-4 py-2 rounded hover:bg-blue-600 transition duration-300 flex-grow ml-2"  %>
               </div>
             </div>
           </div>
